@@ -6,3 +6,5 @@ seaborn
 joblib
 pingouin
 statsmodels
+ipykernel
+h5py
