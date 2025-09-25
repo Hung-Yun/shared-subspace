@@ -1,0 +1,14 @@
+name: subspace
+channels:
+  - default
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - seaborn
+  - joblib
+  - statsmodels
+  - ipykernel
+  - h5py
