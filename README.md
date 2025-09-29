@@ -6,3 +6,9 @@ The code is designed to reproduce the core analyses from our study. Data are **n
 
 ## Reproducing Analyses
 The main analysis notebook is [`analysis.ipynb`](analysis.ipynb). You can run it step by step in Jupyter or VSCode. Dependencies are listed at the top of the notebook.
+
+```
+conda env create -f environment.yml
+conda activate subspace
+pip install -r requirements.txt
+```
