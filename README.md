@@ -1,4 +1,4 @@
-# Subspace Analysis in Human Intracranial Recordings
+# Distinct tasks engage a shared neural subspace
 
 This repository contains analysis code for examining shared neural subspaces across cognitive tasks using intracranial (sEEG) recordings from human epilepsy patients. 
 
