@@ -1,14 +1,30 @@
+# System requirements
+
+The example notebook was tested on macOS 15.7.7 (arm64) with Python 3.13.5.
+Analysis dependencies and their versions are listed in [requirements.txt](requirements.txt).
+The environment also included JupyterLab 4.5.6 and ipykernel 6.29.5.
+No GPU or other specialized hardware is required for the example analyses.
+Other operating systems have not been verified by this demo check.
+
 # Installation
+
+With Conda installed, run these commands from the repository root:
 
 ```bash
 conda create --name subspace python=3.13 pip
 conda activate subspace
 python -m pip install -r requirements.txt
+python -m pip install jupyterlab==4.5.6 ipykernel==6.29.5
 ```
+
+Fresh-install time has not yet been measured. It depends on package downloads
+and the existing Conda installation.
 
 # Example script and data
 
-The [example notebook](examples/reviewer_example.ipynb) loads two anonymized on-task sessions supplied in `examples/data_for_reviewers/`. See [examples/README.md](examples/README.md) for the data fields and instructions.
+The [example notebook](examples/reviewer_example.ipynb) loads two anonymized on-task sessions supplied in `examples/data_for_reviewers/`.
+See [examples/README.md](examples/README.md) for step-by-step instructions,
+expected outputs, the measured demo execution time, and guidance for using your own data.
 
 # Shared-subspace analyses
 
@@ -78,3 +94,10 @@ The six analysis files contain interactive `#%%` cells organized by figure panel
 | Fig S11 | [sensory_inputs.py](sensory_inputs.py) |
 | Fig S12 | [sensory_inputs.py](sensory_inputs.py) |
 | Fig S13 | [subspace_comparison.py](subspace_comparison.py) |
+
+# License
+
+The custom code and its documentation are licensed under the [MIT License](LICENSE).
+Third-party components and dependencies retain their original licenses.
+Research data are not covered by this software license; access to the restricted
+study data requires permission from the corresponding author.
