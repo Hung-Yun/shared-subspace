@@ -1,8 +1,14 @@
 .DS_Store
+.vscode/
 *.pyc
 data/
-plots/
+stats/
+_old/
 papers/
 notes/
 figures/
-*.pkl
+models/
+archive/
+tmp/
+docs/
+outputs/

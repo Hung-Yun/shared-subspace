@@ -1,0 +1,10 @@
+[project]
+name = "shared-subspace-motion-analysis"
+version = "0.1.0"
+description = "Full-frame optical-flow extraction for shared-subspace sensory controls"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "opencv-python>=5.0.0.93",
+    "tqdm>=4.70.0",
+]
