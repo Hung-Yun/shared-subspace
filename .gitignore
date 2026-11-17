@@ -12,3 +12,7 @@ archive/
 tmp/
 docs/
 outputs/
+.venv/
+.ipynb_checkpoints/
+examples/results/
+examples/plots/

@@ -1,34 +1,32 @@
-# System requirements
+# Run the example
 
-The example notebook was tested on macOS 15.7.7 (arm64) with Python 3.13.5.
-Analysis dependencies and their versions are listed in [requirements.txt](requirements.txt).
-The environment also included JupyterLab 4.5.6 and ipykernel 6.29.5.
-No GPU or other specialized hardware is required for the example analyses.
-Other operating systems have not been verified by this demo check.
-
-# Installation
-
-With Conda installed, run these commands from the repository root:
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then run this command from the repository root:
 
 ```bash
-conda create --name subspace python=3.13 pip
-conda activate subspace
-python -m pip install -r requirements.txt
-python -m pip install jupyterlab==4.5.6 ipykernel==6.29.5
+uv run python example_analysis.py
 ```
 
-Fresh-install time has not yet been measured. It depends on package downloads
-and the existing Conda installation.
+The command prepares the Python environment and runs the analyses on two supplied anonymized sessions. Numerical results appear in the terminal, and seven PDF figures are saved in `examples/results/` and opened in the default PDF viewer when available. No separate environment activation or access to the restricted study data is needed. The first run includes dependency downloads; subsequent runs reuse the environment.
 
-# Example script and data
+The example covers task decoding (Fig. 2I), factor analysis (Fig. 3B/F), regional comparisons (Fig. 4), principal angles and subspace distance (Fig. 5), proportional variance explained (Fig. 6C), paired firing rates (Fig. S6C), and dimensionality estimates (Fig. S7). Shuffle, shift-control, and dimensionality results are supplied as saved numerical arrays. Expected values and data fields are listed in [examples/README.md](examples/README.md).
 
-The [example notebook](examples/reviewer_example.ipynb) loads two anonymized on-task sessions supplied in `examples/data_for_reviewers/`.
-See [examples/README.md](examples/README.md) for step-by-step instructions,
-expected outputs, the measured demo execution time, and guidance for using your own data.
+# System requirements
+
+Python 3.13 is selected by `.python-version`. Dependencies are defined in [pyproject.toml](pyproject.toml), with resolved versions recorded in [uv.lock](uv.lock). [requirements.txt](requirements.txt) is generated from that lock for computation-script exports. No GPU or other specialized hardware is required. The example has been tested with Python 3.13.11 on macOS 15.7.7 (arm64); other operating systems have not been verified.
+
+# Optional notebook
+
+To view the same analyses with inline figures, run this command from the repository root:
+
+```bash
+uv run --extra notebook jupyter lab examples/reviewer_example.ipynb
+```
+
+Open [reviewer_example.ipynb](examples/reviewer_example.ipynb), select the Python 3 kernel, and run all cells. Its working directory should be `examples/`.
 
 # Shared-subspace analyses
 
-The six analysis files contain interactive `#%%` cells organized by figure panels. Run interactive cells with the repository root as the working directory.
+The six analysis files contain interactive `#%%` cells organized by figure panels. Run interactive cells with the repository root as the working directory. These full-study scripts require the original study data, which are separate from the supplied example sessions.
 
 | File | Analyses |
 | --- | --- |
@@ -97,7 +95,5 @@ The six analysis files contain interactive `#%%` cells organized by figure panel
 
 # License
 
-The custom code and its documentation are licensed under the [MIT License](LICENSE).
-Third-party components and dependencies retain their original licenses.
-Research data are not covered by this software license; access to the restricted
-study data requires permission from the corresponding author.
+The custom code and its documentation are licensed under the [MIT License](LICENSE). Third-party components and dependencies retain their original licenses.
+Research data are not covered by this software license; access to the restricted study data requires permission from the corresponding author.
