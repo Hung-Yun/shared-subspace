@@ -120,7 +120,7 @@ def read_all_sessions(max_gap_dur_secs: float = 1.0,
 
 
 def regenerate_bin_times(session_path: str | Path, bin_size_ms: int = 100) -> np.ndarray:
-    """Regenerate neural bin starts for sensory-input processing (Fig. S11–S12).
+    """Regenerate neural bin starts for sensory-input processing (Fig. S12–S13).
 
     These are the arrays saved in ``scripts/sensory_inputs/bin_times/`` and
     used by ``get_acoustic_energy.py`` to calculate one microphone RMS value

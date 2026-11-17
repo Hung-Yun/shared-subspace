@@ -265,7 +265,7 @@ for j, (region, key, ix) in enumerate([('hpc', 'B-S1', 12), ('acc', 'W-S1', 11)]
 finish_plot(filename='shifted_REPRESENTATIVE_VIOLIN', save_dir=SAVE_DIR, savefig=SAVEFIG)
 
 
-#%% Histograms of the difference between real and shuffled ∆svpu (Fig S8D, sup-region)
+#%% Histograms of the difference between real and shuffled ∆svpu (Fig S9D, sup-region)
 
 beats = dict()
 for task in TASK_NAMES:

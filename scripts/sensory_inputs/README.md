@@ -1,6 +1,6 @@
 # Video synchronization and sensory energy
 
-These scripts prepare the motion and acoustic measurements used by the repository-root [sensory_inputs.py](../../sensory_inputs.py) for Fig. S11–S12. Motion energy comes from synchronized camera video; acoustic energy comes directly from the NSP-2 microphone recording. The two measurements are extracted separately and are combined with neural activity in the analysis script.
+These scripts prepare the motion and acoustic measurements used by the repository-root [sensory_inputs.py](../../sensory_inputs.py) for Fig. S12–S13. Motion energy comes from synchronized camera video; acoustic energy comes directly from the NSP-2 microphone recording. The two measurements are extracted separately and are combined with neural activity in the analysis script.
 
 The [processing record](README_process_motion.md) describes the original choices, available outputs, and limits of the retained provenance. Raw patient video and NS5/NEV recordings are not included in this folder; rerunning extraction requires access to those source files.
 

@@ -195,4 +195,58 @@ for name, table in [('task_summary', task_summary), ('component_summary', compon
     table.to_csv(overlap_output_dir / f'{name}.csv', index=False)
 pd.concat(response_matrices, axis=1).to_csv(overlap_output_dir / 'unit_task_responsiveness.csv')
 
+#%% THREE-TASK RESPONSIVENESS BY BRAIN REGION (Fig S8)
+
+# Split the same complete cohort used in the pooled CSR panel. Broad
+# responsiveness is event modulation OR task-specific tuning in each task.
+regional_codes = ['C', 'S', 'R']
+regional_complete = (response_matrices['broad'][regional_codes].notna().all(axis=1)
+                     & response_matrices['event_only'][regional_codes].notna().all(axis=1))
+regional_responses = response_matrices['broad'].loc[regional_complete, regional_codes].astype(bool)
+regional_patients = regional_responses.index.get_level_values('Patient').unique()
+
+# Use the session channel metadata, with the same patient + filename identity
+# as above, rather than inferring anatomy from the neuron filename.
+unit_regions = pd.concat([
+    row.session_class.df_chan[['filename', 'region']].rename(columns={'filename': 'neuron'}).assign(Patient=row.Patient)
+    for row in df_all.loc[df_all.Patient.isin(regional_patients)].itertuples()
+], ignore_index=True).drop_duplicates().set_index(['Patient', 'neuron'])['region']
+unit_regions = unit_regions.loc[unit_regions.index.isin(regional_responses.index)]
+if not unit_regions.index.is_unique:
+    raise ValueError('A matched unit has inconsistent anatomical labels across sessions.')
+regional_unit_regions = unit_regions.reindex(regional_responses.index)
+if not regional_unit_regions.isin(['HPC', 'ACC']).all():
+    raise ValueError('Every unit in the three-task cohort must have an HPC or ACC label.')
+
+fig, axes = plt.subplots(1, 2, figsize=(6, 4.5), dpi=300)
+regional_venn_rows = []
+regional_summary_rows = []
+for ax, region in zip(axes, ['HPC', 'ACC']):
+    matched = regional_responses.loc[regional_unit_regions.eq(region)]
+    if matched.empty:
+        raise ValueError(f'No assessed {region} units in the three-task cohort.')
+    counts = plot_task_venn(matched, [task_names[c] for c in regional_codes], region, ax,
+        colors=[TASK_CLR[task_names[c].lower()] for c in regional_codes], label_mode='percent')
+    regional_venn_rows.append(counts.rename_axis('task_pattern').reset_index().assign(
+        region=region, definition='broad', comparison='CSR', n_total=len(matched),
+        pct_units=100 * counts.to_numpy() / len(matched)))
+    n_responsive = int(matched.any(axis=1).sum())
+    regional_summary_rows.append(dict(region=region, definition='broad', comparison='CSR',
+        n_patients=matched.index.get_level_values('Patient').nunique(), n_units=len(matched),
+        n_responsive=n_responsive, n_not_responsive=len(matched) - n_responsive,
+        pct_responsive=100 * n_responsive / len(matched)))
+
+# Preserve a common percentage-area scale across the two regional diagrams.
+xlim = (min(ax.get_xlim()[0] for ax in axes), max(ax.get_xlim()[1] for ax in axes))
+ylim = (min(ax.get_ylim()[0] for ax in axes), max(ax.get_ylim()[1] for ax in axes))
+for ax in axes:
+    ax.set(xlim=xlim, ylim=ylim, aspect='equal')
+finish_plot(filename='task_responsiveness_venn_CSR_by_region', save_dir='plots/tuning', savefig=SAVEFIG)
+
+regional_venn_counts = pd.concat(regional_venn_rows, ignore_index=True)
+regional_responsiveness_summary = pd.DataFrame(regional_summary_rows)
+regional_venn_counts.to_csv(overlap_output_dir / 'regional_venn_counts.csv', index=False)
+regional_responsiveness_summary.to_csv(overlap_output_dir / 'regional_responsiveness_summary.csv', index=False)
+print(regional_responsiveness_summary.to_string(index=False))
+
 # %%

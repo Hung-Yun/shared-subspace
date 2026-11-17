@@ -1,4 +1,4 @@
-"""Extract RoomMic1 acoustic RMS in the neural bins used for Fig. S11–S12.
+"""Extract RoomMic1 acoustic RMS in the neural bins used for Fig. S12–S13.
 
 Inputs: sessions_ns5path.csv, its NSP-2 recordings, and bin_times/*.npy (ms).
 Outputs: energy/<patient>_<EMU>_<task>_RoomMic1_acoustic_energy.npy (microvolts).

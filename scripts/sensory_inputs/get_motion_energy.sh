@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Fig. S11–S12 input: sum of dense optical-flow magnitudes over the whole frame.
+# Fig. S12–S13 input: sum of dense optical-flow magnitudes over the whole frame.
 # Input: videos/<session>/18486638/stitched_18486638.mp4 (30 fps).
 # Output: energy/<session>_motion_energy.csv (one value per frame, no header).
 # Existing outputs are retained. The processing record explains the session skip.

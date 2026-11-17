@@ -48,7 +48,7 @@ The six analysis files contain interactive `#%%` cells organized by figure panel
 - `scripts/subspace_alignment.py` contains calculations of principal angles, geodesic distances, and variance explained.
 - `scripts/shift_controls.py` contains regional shift controls with fixed-rank FA fitting.
 - `scripts/subspace_simulation/` contains scripts for generating activity, simulating subspace alignment, and validating results.
-- `scripts/sensory_inputs/` contains scripts for synchronizing and stitching videos, extracting full-frame optical-flow motion energy, and calculating acoustic RMS in neural time bins. These measurements feed `sensory_inputs.py` for Fig S11–S12. See the [workflow guide](scripts/sensory_inputs/README.md) for commands and environment requirements, and the [processing record](scripts/sensory_inputs/README_process_motion.md) for processing choices and retained outputs.
+- `scripts/sensory_inputs/` contains scripts for synchronizing and stitching videos, extracting full-frame optical-flow motion energy, and calculating acoustic RMS in neural time bins. These measurements feed `sensory_inputs.py` for Fig S12–S13. See the [workflow guide](scripts/sensory_inputs/README.md) for commands and environment requirements, and the [processing record](scripts/sensory_inputs/README_process_motion.md) for processing choices and retained outputs.
 
 # Figure index
 
@@ -56,12 +56,12 @@ The six analysis files contain interactive `#%%` cells organized by figure panel
 
 | Script | Figures plotted |
 | --- | --- |
-| [main_analysis.py](main_analysis.py) | Fig 2D–F + Fig S4; Fig 3B; Fig 3C–E; Fig 3F; Fig 3G; Fig S1; Fig S2; Fig S6; Fig S7; Fig S9 |
-| [subspace_comparison.py](subspace_comparison.py) | Fig 5; Fig 6; Fig S10; Fig S13 |
-| [regions.py](regions.py) | Fig 4; Fig S8D |
+| [main_analysis.py](main_analysis.py) | Fig 2D–F + Fig S4; Fig 3B; Fig 3C–E; Fig 3F; Fig 3G; Fig S1; Fig S2; Fig S6; Fig S7; Fig S10 |
+| [subspace_comparison.py](subspace_comparison.py) | Fig 5; Fig 6; Fig S11; Fig S14 |
+| [regions.py](regions.py) | Fig 4; Fig S9D |
 | [decode.py](decode.py) | Fig 2G; Fig 2I; Fig 3H |
-| [tuning.py](tuning.py) | Fig 2H; Fig 2J; Fig S5 |
-| [sensory_inputs.py](sensory_inputs.py) | Fig S11; Fig S12 |
+| [tuning.py](tuning.py) | Fig 2H; Fig 2J; Fig S5; Fig S8 |
+| [sensory_inputs.py](sensory_inputs.py) | Fig S12; Fig S13 |
 
 ## Figure panels → script
 
@@ -86,12 +86,13 @@ The six analysis files contain interactive `#%%` cells organized by figure panel
 | Fig S5 | [tuning.py](tuning.py) |
 | Fig S6 | [main_analysis.py](main_analysis.py) |
 | Fig S7 | [main_analysis.py](main_analysis.py) |
-| Fig S8D | [regions.py](regions.py) |
-| Fig S9 | [main_analysis.py](main_analysis.py) |
-| Fig S10 | [subspace_comparison.py](subspace_comparison.py) |
-| Fig S11 | [sensory_inputs.py](sensory_inputs.py) |
+| Fig S8 | [tuning.py](tuning.py) |
+| Fig S9D | [regions.py](regions.py) |
+| Fig S10 | [main_analysis.py](main_analysis.py) |
+| Fig S11 | [subspace_comparison.py](subspace_comparison.py) |
 | Fig S12 | [sensory_inputs.py](sensory_inputs.py) |
-| Fig S13 | [subspace_comparison.py](subspace_comparison.py) |
+| Fig S13 | [sensory_inputs.py](sensory_inputs.py) |
+| Fig S14 | [subspace_comparison.py](subspace_comparison.py) |
 
 # License
 

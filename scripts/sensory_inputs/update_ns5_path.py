@@ -1,4 +1,4 @@
-"""Locate the NSP-2 recordings used for acoustic energy in Fig. S11–S12.
+"""Locate the NSP-2 recordings used for acoustic energy in Fig. S12–S13.
 
 Input: sessions.csv (Patient, EMU, Task) and the stitched recording directory.
 Output: sessions_ns5path.csv, retaining every session and adding ns5_path.

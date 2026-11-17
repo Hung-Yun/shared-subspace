@@ -1,6 +1,6 @@
 # Subspace-alignment simulations
 
-These scripts generate neural activity, fit subspaces, and evaluate alignment and variance explained for Fig. 6 and Fig. S13. Plotting cells are in [subspace_comparison.py](../../subspace_comparison.py).
+These scripts generate neural activity, fit subspaces, and evaluate alignment and variance explained for Fig. 6 and Fig. S14. Plotting cells are in [subspace_comparison.py](../../subspace_comparison.py).
 
 Use the environment described in the repository's [installation instructions](../../README.md#installation).
 

@@ -596,7 +596,7 @@ plt.legend(frameon=False, fontsize=6)
 save_dir = os.path.join('plots', 'cross_val')
 finish_plot(filename='d_shared_thres', save_dir=save_dir, savefig=SAVEFIG)
 
-#%% Plot factor loading of the first subspace dimension, AXZD finished all 3 tasks (Fig S9A, sup-firstdim)
+#%% Plot factor loading of the first subspace dimension, AXZD finished all 3 tasks (Fig S10A, sup-firstdim)
 
 for subj in 'AXZD':
     df = get_single_subj_df(df_all, subj)
@@ -618,7 +618,7 @@ for subj in 'AXZD':
     save_dir = os.path.join('plots', 'subspace')
     finish_plot(filename=f'first_dim_loading_subj_{subj}', save_dir=save_dir, savefig=SAVEFIG)
 
-#%% Using subject Z as example, do subspace distance (Fig S9B, sup-firstdim)
+#%% Using subject Z as example, do subspace distance (Fig S10B, sup-firstdim)
 
 def _sim(N, L, psi, rng):
     """

@@ -162,7 +162,7 @@ if len(df_pairs) > example_index:
     ax.legend(frameon=False)
     finish_plot(filename=f'prinAng_example_{example_index}', save_dir=save_dir, savefig=SAVEFIG, show=SHOW)
 
-#%% Geodesic distance (Fig 5C and Fig S10, compare and sup-geodist)
+#%% Geodesic distance (Fig 5C and Fig S11, compare and sup-geodist)
 for style in ('more', 'less', 'full'):
     table = geodesic_summary(results, df_pairs, style, gd_shuffle)
     tables.append(table)
@@ -214,7 +214,7 @@ PLOT_DIR = ROOT / 'plots/subspace_simulation'
 PARAMS = MODEL_DIR / 'simulation_generating_params.pkl'
 RERUN = False
 
-#%% Subspace alignment simulation (Fig 6B and Fig S13, align and sup-align)
+#%% Subspace alignment simulation (Fig 6B and Fig S14, align and sup-align)
 if RERUN: 
     for sim_input in (CACHE, PARAMS):
         if not sim_input.is_file():
