@@ -24,7 +24,7 @@ uv run --extra notebook jupyter lab examples/reviewer_example.ipynb
 
 Open [reviewer_example.ipynb](examples/reviewer_example.ipynb), select the Python 3 kernel, and run all cells. Its working directory should be `examples/`.
 
-# Shared-subspace analyses
+# Shared-subspace analyses (require full study data)
 
 The six analysis files contain interactive `#%%` cells organized by figure panels. Run interactive cells with the repository root as the working directory. These full-study scripts require the original study data, which are separate from the supplied example sessions.
 
